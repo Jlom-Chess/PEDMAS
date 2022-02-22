@@ -1,8 +1,0 @@
-Jose,31
-Luis,17
-Javier,7
-Humberto,9
-Alejandro,1
-Jorge,1
-Alfredo,1
-jose,1
