@@ -14,10 +14,8 @@
 """
 from random import randint  # ambos forma el ejercicio 1 del libro guía
 from os import remove, rename
-
-
 """
-La siguiente parte del código servirá para almacenar el puntaje del jugadores
+La siguiente parte del código servirá para almacenar el puntaje de los jugadores
 usaremos nombres en inglés por ser algo más cortos
 """
 # Se define la función para obtener los puntos del jugador
@@ -34,9 +32,8 @@ def getUserScore(username):
         scores.close()
         return "-1"
     except IOError:
-        print(
-            "\nArchivo userScores.txt no se encontró. " "Un nuevo archivo será creado"
-        )
+        print("\nArchivo userScores.txt no se encontró. "
+              "Un nuevo archivo será creado")
         scores = open("userScores.txt", "w")
         scores.close()
         return "-1"
@@ -64,8 +61,6 @@ def upadateUserScore(newUser, username, score):
 
 # Ahora hay que generar la operación que el usuario debe resolve
 # Se van a requerir dos listas y un diccionario
-
-
 """
 operandList = es la lista de los números que forman la operación que
                 Esta lista tendrá 5 números con 0 como sus valores iniciales
@@ -104,17 +99,14 @@ def generateQuestions():
                     questionString = str(operandList[i])
             else:
                 if i == openBracket:
-                    questionString = (
-                        questionString + operatorList[i - 1] + "(" + str(operandList[i])
-                    )
+                    questionString = (questionString + operatorList[i - 1] +
+                                      "(" + str(operandList[i]))
                 elif i == closeBracket:
-                    questionString = (
-                        questionString + operatorList[i - 1] + str(operandList[i]) + ")"
-                    )
+                    questionString = (questionString + operatorList[i - 1] +
+                                      str(operandList[i]) + ")")
                 else:
-                    questionString = (
-                        questionString + operatorList[i - 1] + str(operandList[i])
-                    )
+                    questionString = (questionString + operatorList[i - 1] +
+                                      str(operandList[i]))
 
         newResult = round(eval(questionString), 2)
         if newResult >= -50000 and newResult <= 50000:
@@ -124,16 +116,16 @@ def generateQuestions():
     questionString = questionString.replace("**", "^")
 
     print("\n" + questionString)
-    respuesta = input("Por favor ingrese su respuesta (redondeado a 2 decimales) ")
+    respuesta = input(
+        "Por favor ingrese su respuesta (redondeado a 2 decimales) ")
     while True:
         try:
             if float(respuesta) == newResult:
                 print("\n" + "¡Respuesta correcta!, ha ganado un punto")
                 return 1
             else:
-                print(
-                    "\n" + "Respuesta incorrecta, la respuesta correcta es ", newResult
-                )
+                print("\n" + "Respuesta incorrecta, la respuesta correcta es ",
+                      newResult)
                 return 0
         except Exception as e:
             print("Usted no ingresó un número, por favor intente otra vez", e)
