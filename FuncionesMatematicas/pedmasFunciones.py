@@ -12,8 +12,8 @@
      los jugadores
         Usaremos las funciones remove() y raname()
 """
-from random import randint  # ambos forma el ejercicio 1 del libro guía
 from os import remove, rename
+from random import randint  # ambos forma el ejercicio 1 del libro guía
 """
 La siguiente parte del código servirá para almacenar el puntaje de los jugadores
 usaremos nombres en inglés por ser algo más cortos
@@ -21,7 +21,7 @@ usaremos nombres en inglés por ser algo más cortos
 # Se define la función para obtener los puntos del jugador
 
 
-def getUserScore(username):
+def getuserscore(username):
     try:
         scores = open("userScores.txt", "r")
         for line in scores:
@@ -40,7 +40,7 @@ def getUserScore(username):
 
 
 # Se define la función para actualizar el puntaje del jugador
-def upadateUserScore(newUser, username, score):
+def upadateuserscore(newUser, username, score):
     if newUser:
         scores = open("userScores.txt", "a")
         scores.write("\n" + username + "," + str(score))
@@ -73,10 +73,11 @@ operatorDict = consiste de 4 pares
 """
 
 
-def generateQuestions():
+def generatequestions():
     operandList = [0, 0, 0, 0, 0]
     operatorList = ["", "", "", ""]
     operatorDict = {1: "+", 2: "-", 3: "*", 4: "/", 5: "**"}
+    questionString = ""
     while True:
         for i in range(len(operandList)):
             operandList[i] = randint(1, 9)

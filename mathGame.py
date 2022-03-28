@@ -1,8 +1,9 @@
-from pedmasFunciones import getUserScore, generateQuestions, upadateUserScore
+# import FuncionesMatematicas.pedmasFunciones as fm
+from FuncionesMatematicas import pedmasFunciones as fm
 
 try:
     username = input("Ingrese su nombre ")
-    userScore = int(getUserScore(username))
+    userScore = int(fm.getuserscore(username))
     if userScore == -1:
         userScore = 0
         newUser = True
@@ -13,12 +14,12 @@ try:
     print("Su puntaje al iniciar el juego es", userScore)
     userChoice = "0"
     while userChoice != "-1":
-        score = generateQuestions()
+        score = fm.generatequestions()
         userScore = userScore + score
         print("Puntaje actual", userScore)
         userChoice = input("¿Desea continuar el juego?. Digite -1 para salir ")
 
-    upadateUserScore(newUser, username, userScore)
+    fm.upadateuserscore(newUser, username, userScore)
 
     print(
         "\n" + "Muchas gracias",
