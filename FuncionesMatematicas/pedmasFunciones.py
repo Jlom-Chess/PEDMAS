@@ -3,7 +3,7 @@
 # Primero importaremos los módulos necesarios
 """
     El módulo random: Necesario para generar las operaciones a calcular de
-    manera alaetoria
+    manera aleatoria
     Se usará la función:
         randint() que genera aleatorios enteros en un rango determinado
         Esto permitirá generar los números para las operaciones a resolver por
@@ -14,10 +14,13 @@
 """
 from os import remove, rename
 from random import randint  # ambos forma el ejercicio 1 del libro guía
+
 """
 La siguiente parte del código servirá para almacenar el puntaje de los jugadores
 usaremos nombres en inglés por ser algo más cortos
 """
+
+
 # Se define la función para obtener los puntos del jugador
 
 
