@@ -35,8 +35,9 @@ def getuserscore(username):
         scores.close()
         return "-1"
     except IOError:
-        print("\nArchivo userScores.txt no se encontró. "
-              "Un nuevo archivo será creado")
+        print(
+            "\nArchivo userScores.txt no se encontró. " "Un nuevo archivo será creado"
+        )
         scores = open("userScores.txt", "w")
         scores.close()
         return "-1"
@@ -103,14 +104,17 @@ def generatequestions():
                     questionString = str(operandList[i])
             else:
                 if i == openBracket:
-                    questionString = (questionString + operatorList[i - 1] +
-                                      "(" + str(operandList[i]))
+                    questionString = (
+                        questionString + operatorList[i - 1] + "(" + str(operandList[i])
+                    )
                 elif i == closeBracket:
-                    questionString = (questionString + operatorList[i - 1] +
-                                      str(operandList[i]) + ")")
+                    questionString = (
+                        questionString + operatorList[i - 1] + str(operandList[i]) + ")"
+                    )
                 else:
-                    questionString = (questionString + operatorList[i - 1] +
-                                      str(operandList[i]))
+                    questionString = (
+                        questionString + operatorList[i - 1] + str(operandList[i])
+                    )
 
         newResult = round(eval(questionString), 2)
         if newResult >= -50000 and newResult <= 50000:
@@ -120,16 +124,16 @@ def generatequestions():
     questionString = questionString.replace("**", "^")
 
     print("\n" + questionString)
-    respuesta = input(
-        "Por favor ingrese su respuesta (redondeado a 2 decimales) ")
+    respuesta = input("Por favor ingrese su respuesta (redondeado a 2 decimales) ")
     while True:
         try:
             if float(respuesta) == newResult:
                 print("\n" + "¡Respuesta correcta!, ha ganado un punto")
                 return 1
             else:
-                print("\n" + "Respuesta incorrecta, la respuesta correcta es ",
-                      newResult)
+                print(
+                    "\n" + "Respuesta incorrecta, la respuesta correcta es ", newResult
+                )
                 return 0
         except Exception as e:
             print("Usted no ingresó un número, por favor intente otra vez", e)
